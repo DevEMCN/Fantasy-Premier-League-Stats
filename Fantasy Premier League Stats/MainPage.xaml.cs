@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fantasy_Premier_League_Stats.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace Fantasy_Premier_League_Stats
         public MainPage()
         {
             this.InitializeComponent();
+            Players.LoadData();
         }
+
+
     }
 }
