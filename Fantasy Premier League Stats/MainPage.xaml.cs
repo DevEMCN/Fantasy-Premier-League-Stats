@@ -26,9 +26,40 @@ namespace Fantasy_Premier_League_Stats
         public MainPage()
         {
             this.InitializeComponent();
-            Players.LoadData();
+            BackButton.Visibility = Visibility.Collapsed;
+            MyFrame.Navigate(typeof(Views.HomePage));
+            TitleTextBlock.Text = "Fantasy Football Stats";
+            FantasyFootballStats.IsSelected = true;
         }
 
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyFrame.CanGoBack)
+            {
+                MyFrame.GoBack();
+                //FantasyFootballStats.IsSelected = true;
+            }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FantasyFootballStats.IsSelected)
+            {
+                BackButton.Visibility = Visibility.Collapsed;
+                MyFrame.Navigate(typeof(Views.Players));
+                TitleTextBlock.Text = "Fantasy Football Stats";
+            }
+            else if (Players.IsSelected)
+            {
+                BackButton.Visibility = Visibility.Visible;
+                MyFrame.Navigate(typeof(Views.HomePage));
+                TitleTextBlock.Text = "Players";
+            }
+        }
     }
 }

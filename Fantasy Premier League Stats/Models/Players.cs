@@ -19,6 +19,7 @@ namespace Fantasy_Premier_League_Stats.Models
         }
         public static async Task LoadLocalData()
         {
+            // adapted from http://www.newtonsoft.com/json/help/html/SerializingJSONFragments.htm
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync("http://jokecamp.github.io/epl-fantasy-geek/js/static-data.json");
             var result = await response.Content.ReadAsStringAsync();
