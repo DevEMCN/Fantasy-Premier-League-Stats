@@ -20,6 +20,11 @@ namespace Fantasy_Premier_League_Stats.Models
         {
             Players = players;
         }
+
+        public IList<Player> GetPlayers()
+        {
+            return players;
+        }
         public static async Task LoadData()
         {
             await LoadLocalData();
@@ -38,13 +43,14 @@ namespace Fantasy_Premier_League_Stats.Models
             createStatsList(results);
         }
 
-        private static void createStatsList(IList<JToken> results)
+        public static void createStatsList(IList<JToken> results)
         {
             foreach (JToken r in results)
             {
                 Player pStats = JsonConvert.DeserializeObject<Player>(r.ToString());
                 players.Add(pStats);
             }
+            
         }
     }
 }

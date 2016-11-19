@@ -27,6 +27,8 @@ namespace Fantasy_Premier_League_Stats.ViewModels
 
         public string second_name { get { return second_name; } }
 
+        public string full_name { get { return first_name + " " + second_name; } }
+
         public int? squad_number { get { return squad_number; } }
 
         public string news { get { return news; } }

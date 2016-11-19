@@ -52,13 +52,13 @@ namespace Fantasy_Premier_League_Stats
             if (FantasyFootballStats.IsSelected)
             {
                 BackButton.Visibility = Visibility.Collapsed;
-                MyFrame.Navigate(typeof(Views.Players));
+                MyFrame.Navigate(typeof(Views.HomePage));
                 TitleTextBlock.Text = "Fantasy Football Stats";
             }
             else if (Players.IsSelected)
             {
                 BackButton.Visibility = Visibility.Visible;
-                MyFrame.Navigate(typeof(Views.HomePage));
+                MyFrame.Navigate(typeof(Views.Players));
                 TitleTextBlock.Text = "Players";
             }
         }
