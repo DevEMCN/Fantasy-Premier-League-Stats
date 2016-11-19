@@ -1,6 +1,5 @@
 ﻿using Fantasy_Premier_League_Stats.Data;
 using Fantasy_Premier_League_Stats.Models;
-using Fantasy_Premier_League_Stats.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
