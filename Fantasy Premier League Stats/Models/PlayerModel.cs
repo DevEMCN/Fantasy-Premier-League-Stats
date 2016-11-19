@@ -11,8 +11,15 @@ using System.Threading.Tasks;
 
 namespace Fantasy_Premier_League_Stats.Models
 {
-    public class Players
+    public class PlayerModel
     {
+        public IList<Player> Players { get; set; }
+        public static IList<Player> players = new List<Player>();
+
+        public PlayerModel()
+        {
+            Players = players;
+        }
         public static async Task LoadData()
         {
             await LoadLocalData();
@@ -31,15 +38,13 @@ namespace Fantasy_Premier_League_Stats.Models
             createStatsList(results);
         }
 
-        private static IList<PlayerStats> createStatsList(IList<JToken> results)
+        private static void createStatsList(IList<JToken> results)
         {
-            IList<PlayerStats> stats = new List<PlayerStats>();
             foreach (JToken r in results)
             {
-                PlayerStats pStats = JsonConvert.DeserializeObject<PlayerStats>(r.ToString());
-                stats.Add(pStats);
+                Player pStats = JsonConvert.DeserializeObject<Player>(r.ToString());
+                players.Add(pStats);
             }
-            return stats;
         }
     }
 }

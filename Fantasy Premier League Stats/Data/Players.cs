@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Fantasy_Premier_League_Stats.Data
 {
   
-    public class PlayerStats
+    public class Player
     {
         public int id { get; set; }
 

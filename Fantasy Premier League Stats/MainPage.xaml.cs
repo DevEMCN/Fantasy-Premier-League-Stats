@@ -30,6 +30,7 @@ namespace Fantasy_Premier_League_Stats
             MyFrame.Navigate(typeof(Views.HomePage));
             TitleTextBlock.Text = "Fantasy Football Stats";
             FantasyFootballStats.IsSelected = true;
+            PlayerModel.LoadLocalData();
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
