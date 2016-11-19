@@ -9,16 +9,27 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView ItemsSource="{x:Bind PlayersList}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Team" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Player" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Goals" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Assists" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Bonus" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
+        </StackPanel>
+        <ListView ItemsSource="{x:Bind PlayersList}" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Player">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind team}"/>
+                        <TextBlock Text="{x:Bind team}" Margin="0,0,10,0"/>
                         <TextBlock Text="{x:Bind first_name}" Margin="0,0,3,0"/>
-                        <TextBlock Text="{x:Bind second_name}"/>
-                        <TextBlock Text="{x:Bind goals_scored}"/>
-                        <TextBlock Text="{x:Bind assists}"/>
-                        <TextBlock Text="{x:Bind bonus}"/>
+                        <TextBlock Text="{x:Bind second_name}" Margin="0,0,10,0"/>
+                        <TextBlock Text="{x:Bind goals_scored}" Margin="0,0,10,0"/>
+                        <TextBlock Text="{x:Bind assists}" Margin="0,0,10,0"/>
+                        <TextBlock Text="{x:Bind bonus}" Margin="0,0,10,0"/>
                         
                     </StackPanel>
                 </DataTemplate>
