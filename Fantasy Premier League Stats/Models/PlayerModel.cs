@@ -18,7 +18,7 @@ namespace Fantasy_Premier_League_Stats.Models
 
         public PlayerModel()
         {
-            Players = players;
+            Players = enhancePlayersList(players);
         }
 
         public IList<Player> GetPlayers()
@@ -50,7 +50,98 @@ namespace Fantasy_Premier_League_Stats.Models
                 Player pStats = JsonConvert.DeserializeObject<Player>(r.ToString());
                 players.Add(pStats);
             }
-            
+
+        }
+
+        private IList<Player> enhancePlayersList(IList<Player> players)
+        {
+            foreach (Player player in players)
+            {
+                switch (player.team)
+                {
+                    case 1:
+                        player.team_name = "Arsenal";
+                        player.team_name_short = "ARS";
+                        break;
+                    case 2:
+                        player.team_name = "Bournemouth";
+                        player.team_name_short = "BOU";
+                        break;
+                    case 3:
+                        player.team_name = "Burnley";
+                        player.team_name_short = "BUR";
+                        break;
+                    case 4:
+                        player.team_name = "Chelsea";
+                        player.team_name_short = "CHE";
+                        break;
+                    case 5:
+                        player.team_name = "Crystal Palace";
+                        player.team_name_short = "CRY";
+                        break;
+                    case 6:
+                        player.team_name = "Everton";
+                        player.team_name_short = "EVE";
+                        break;
+                    case 7:
+                        player.team_name = "Hull City";
+                        player.team_name_short = "HUL";
+                        break;
+                    case 8:
+                        player.team_name = "Leicester City";
+                        player.team_name_short = "LEI";
+                        break;
+                    case 9:
+                        player.team_name = "Liverpool";
+                        player.team_name_short = "LIV";
+                        break;
+                    case 10:
+                        player.team_name = "Manchester City";
+                        player.team_name_short = "MCI";
+                        break;
+                    case 11:
+                        player.team_name = "Manchester United";
+                        player.team_name_short = "MUN";
+                        break;
+                    case 12:
+                        player.team_name = "Middlesbrough";
+                        player.team_name_short = "MID";
+                        break;
+                    case 13:
+                        player.team_name = "Southampton";
+                        player.team_name_short = "SOU";
+                        break;
+                    case 14:
+                        player.team_name = "Stoke City";
+                        player.team_name_short = "STK";
+                        break;
+                    case 15:
+                        player.team_name = "Sunderland";
+                        player.team_name_short = "SUN";
+                        break;
+                    case 16:
+                        player.team_name = "Swansea City";
+                        player.team_name_short = "SWA";
+                        break;
+                    case 17:
+                        player.team_name = "Tottenham Hotspur";
+                        player.team_name_short = "TOT";
+                        break;
+                    case 18:
+                        player.team_name = "Watford";
+                        player.team_name_short = "WAT";
+                        break;
+                    case 19:
+                        player.team_name = "West Bromwich Albion";
+                        player.team_name_short = "WBA";
+                        break;
+                    case 20:
+                        player.team_name = "West Ham United";
+                        player.team_name_short = "WHU";
+                        break;
+                }
+            }
+            return null;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Fantasy_Premier_League_Stats.Models;
+using Fantasy_Premier_League_Stats.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,7 +61,7 @@ namespace Fantasy_Premier_League_Stats
                 BackButton.Visibility = Visibility.Visible;
                 MyFrame.Navigate(typeof(Views.Players));
                 TitleTextBlock.Text = "Players";
-            }
+            } 
         }
     }
 }

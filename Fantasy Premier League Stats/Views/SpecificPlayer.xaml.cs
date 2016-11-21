@@ -1,5 +1,4 @@
 ﻿using Fantasy_Premier_League_Stats.Data;
-using Fantasy_Premier_League_Stats.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,28 +21,17 @@ namespace Fantasy_Premier_League_Stats.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Players : Page
+    public sealed partial class SpecificPlayer : Page
     {
-        public Players()
+        public SpecificPlayer()
         {
             this.InitializeComponent();
-            PlayerModel playerM = new PlayerModel();
-            PlayersList = playerM.GetPlayers();
-            
         }
 
-        private IList<Player> PlayersList;
-
-        //private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        //{
-        //    var playerData = ((Player)e.ClickedItem).first_name + " " + ((Player)e.ClickedItem).second_name;
-        //    Frame.Navigate(typeof(Views.SpecificPlayer), playerData);
-        //}
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var playerData = e.AddedItems[0];
-            Frame.Navigate(typeof(Views.SpecificPlayer), playerData);
+            Player player = e.Parameter as Player;
+            test.Text = player.goals_scored.ToString();
         }
     }
 }

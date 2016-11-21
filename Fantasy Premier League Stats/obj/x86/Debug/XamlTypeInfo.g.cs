@@ -132,19 +132,21 @@ namespace Fantasy_Premier_League_Stats.Fantasy_Premier_League_Stats_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[6];
             _typeNameTable[0] = "Fantasy_Premier_League_Stats.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "Fantasy_Premier_League_Stats.Views.HomePage";
             _typeNameTable[4] = "Fantasy_Premier_League_Stats.Views.Players";
+            _typeNameTable[5] = "Fantasy_Premier_League_Stats.Views.SpecificPlayer";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[6];
             _typeTable[0] = typeof(global::Fantasy_Premier_League_Stats.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::Fantasy_Premier_League_Stats.Views.HomePage);
             _typeTable[4] = typeof(global::Fantasy_Premier_League_Stats.Views.Players);
+            _typeTable[5] = typeof(global::Fantasy_Premier_League_Stats.Views.SpecificPlayer);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -182,6 +184,7 @@ namespace Fantasy_Premier_League_Stats.Fantasy_Premier_League_Stats_XamlTypeInfo
         private object Activate_0_MainPage() { return new global::Fantasy_Premier_League_Stats.MainPage(); }
         private object Activate_3_HomePage() { return new global::Fantasy_Premier_League_Stats.Views.HomePage(); }
         private object Activate_4_Players() { return new global::Fantasy_Premier_League_Stats.Views.Players(); }
+        private object Activate_5_SpecificPlayer() { return new global::Fantasy_Premier_League_Stats.Views.SpecificPlayer(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -218,6 +221,13 @@ namespace Fantasy_Premier_League_Stats.Fantasy_Premier_League_Stats_XamlTypeInfo
             case 4:   //  Fantasy_Premier_League_Stats.Views.Players
                 userType = new global::Fantasy_Premier_League_Stats.Fantasy_Premier_League_Stats_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_4_Players;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Fantasy_Premier_League_Stats.Views.SpecificPlayer
+                userType = new global::Fantasy_Premier_League_Stats.Fantasy_Premier_League_Stats_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_SpecificPlayer;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

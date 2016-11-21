@@ -13,18 +13,18 @@
             <RowDefinition Height="100" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Team" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Team" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
             <TextBlock Text="Player" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
             <TextBlock Text="Goals" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
             <TextBlock Text="Assists" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
             <TextBlock Text="Bonus" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
         </StackPanel>
-        <ListView ItemsSource="{x:Bind PlayersList}" Grid.Row="1">
+        <ListView ItemsSource="{x:Bind PlayersList}" Grid.Row="1" HorizontalAlignment="Center" SelectionChanged="ListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Player">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind team}" Margin="0,0,10,0"/>
+                        <TextBlock Text="{x:Bind team_name_short}" HorizontalAlignment="Left"/>
                         <TextBlock Text="{x:Bind first_name}" Margin="0,0,3,0"/>
                         <TextBlock Text="{x:Bind second_name}" Margin="0,0,10,0"/>
                         <TextBlock Text="{x:Bind goals_scored}" Margin="0,0,10,0"/>
