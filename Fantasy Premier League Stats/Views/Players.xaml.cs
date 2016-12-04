@@ -40,7 +40,7 @@ namespace Fantasy_Premier_League_Stats.Views
         //    Frame.Navigate(typeof(Views.SpecificPlayer), playerData);
         //}
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var playerData = e.AddedItems[0];
             Frame.Navigate(typeof(Views.SpecificPlayer), playerData);

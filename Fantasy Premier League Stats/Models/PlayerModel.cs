@@ -141,6 +141,30 @@ namespace Fantasy_Premier_League_Stats.Models
                         break;
                 }
             }
+
+            foreach(Player player in players)
+            {
+                player.full_name = player.first_name + " " + player.second_name;
+            }
+
+            foreach(Player player in players)
+            {
+                switch (player.element_type)
+                {
+                    case 1:
+                        player.position = "K";
+                        break;
+                    case 2:
+                        player.position = "DF";
+                        break;
+                    case 3:
+                        player.position = "MF";
+                        break;
+                    case 4:
+                        player.position = "ST";
+                        break;
+                }
+            }
             return null;
         }
     }

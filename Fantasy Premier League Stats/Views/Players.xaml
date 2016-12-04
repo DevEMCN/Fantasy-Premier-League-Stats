@@ -8,34 +8,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Team" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
-            <TextBlock Text="Player" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
-            <TextBlock Text="Goals" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
-            <TextBlock Text="Assists" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
-            <TextBlock Text="Bonus" Margin="0,0,30,0" VerticalAlignment="Bottom"/>
-        </StackPanel>
-        <ListView ItemsSource="{x:Bind PlayersList}" Grid.Row="1" HorizontalAlignment="Center" SelectionChanged="ListView_SelectionChanged">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:Player">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind team_name_short}" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind first_name}" Margin="0,0,3,0"/>
-                        <TextBlock Text="{x:Bind second_name}" Margin="0,0,10,0"/>
-                        <TextBlock Text="{x:Bind goals_scored}" Margin="0,0,10,0"/>
-                        <TextBlock Text="{x:Bind assists}" Margin="0,0,10,0"/>
-                        <TextBlock Text="{x:Bind bonus}" Margin="0,0,10,0"/>
-                        
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-
-    </Grid>
+    <GridView Name="PlayersGrid"
+                          ItemsSource="{x:Bind PlayersList}"
+                          HorizontalAlignment="Stretch"
+                          Margin="10,0,0,0"
+                          SelectionChanged="GridView_SelectionChanged">
+        <GridView.ItemTemplate>
+            <DataTemplate x:DataType="data:Player">
+                <Grid Background="White" Margin="10" Height="275" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="PlayerName" Text="{x:Bind full_name}" HorizontalAlignment="Center" FontSize="15"/>
+                    <RelativePanel Grid.Row="1" Margin="10">
+                        <TextBlock Name="Poslbl" Text="POS" RelativePanel.AlignTopWithPanel="True" FontSize="18" TextWrapping="Wrap" Margin="20,0,0,0"/>
+                        <TextBlock Name="Position" Text="{x:Bind position}" FontSize="18" RelativePanel.Below="Poslbl" Margin="20,0,0,0"/>
+                        <TextBlock Name="Costlbl" Text="COST" RelativePanel.RightOf="Poslbl" FontSize="18" TextWrapping="Wrap" Margin="60,0,0,0"/>
+                        <TextBlock Name="Cost" Text="{x:Bind now_cost}" FontSize="18" RelativePanel.Below="Costlbl" Margin="120,0,0,0"/>
+                        <TextBlock Name="Goalslbl" Text="GS" RelativePanel.Below="Position" FontSize="18" TextWrapping="Wrap" Margin="20,20,0,0"/>
+                        <TextBlock Name="GoalsScored" Text="{x:Bind goals_scored}" FontSize="18" RelativePanel.Below="Goalslbl" Margin="20,0,0,0"/>
+                        <TextBlock Name="Assistslbl" RelativePanel.Below="Cost" Text="A" FontSize="18" Margin="120,20,0,0"/>
+                        <TextBlock Name="Assists" RelativePanel.Below="Assistslbl" TextWrapping="Wrap" Text="{x:Bind assists}" FontSize="18" Margin="120,0,0,0"/>
+                        <TextBlock Name="bonuslbl" Text="Bonus" RelativePanel.Below="Goalslbl" FontSize="18" TextWrapping="Wrap" Margin="20,40,0,0"/>
+                        <TextBlock Name="Bonus" Text="{x:Bind bonus}" FontSize="18" RelativePanel.Below="bonuslbl" Margin="20,0,0,0"/>
+                        <TextBlock Name="totallbl" RelativePanel.Below="Assists" Text="Points" FontSize="18" Margin="120,20,0,0"/>
+                        <TextBlock Name="TotalPoints" RelativePanel.Below="totallbl" TextWrapping="Wrap" Text="{x:Bind total_points}" FontSize="18" Margin="120,0,0,0"/>
+                    </RelativePanel>
+                    <TextBlock Grid.Row="2" Text="Tap for more stats..."/>
+                </Grid>
+            </DataTemplate>
+        </GridView.ItemTemplate>
+    </GridView>
 </Page>

@@ -127,6 +127,10 @@ namespace Fantasy_Premier_League_Stats.Data
         public string team_name { get; set; }
 
         public string team_name_short { get; set; }
+
+        public string full_name { get; set; }
+
+        public string position { get; set; }
     }
 
     

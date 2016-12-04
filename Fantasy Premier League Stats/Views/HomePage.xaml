@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <Image Source="Assets/SplashScreen.scale-200.png"/>
+    <Grid Background="White>
+       
     </Grid>
 </Page>
