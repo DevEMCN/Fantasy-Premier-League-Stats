@@ -165,6 +165,19 @@ namespace Fantasy_Premier_League_Stats.Models
                         break;
                 }
             }
+
+            foreach(Player player in players)
+            {
+                switch (player.status)
+                {
+                    case "i":
+                        player.injured = "Injured";
+                        break;
+                    case "a":
+                        player.injured = "Available";
+                        break;
+                }
+            }
             return null;
         }
     }

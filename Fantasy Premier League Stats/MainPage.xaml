@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
         <RelativePanel>
             <Button Name="HamburgerButton" 
                     RelativePanel.AlignLeftWithPanel="True"

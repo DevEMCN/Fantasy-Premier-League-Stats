@@ -131,6 +131,8 @@ namespace Fantasy_Premier_League_Stats.Data
         public string full_name { get; set; }
 
         public string position { get; set; }
+
+        public string injured { get; set; }
     }
 
     

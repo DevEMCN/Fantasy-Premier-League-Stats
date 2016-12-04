@@ -8,6 +8,165 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Name="test" Text=""/>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainPanel.Width" Value="200"/>
+                        <Setter Target="namelbl.FontSize" Value="10"/>
+                        <Setter Target="Name.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Name.FontSize" Value="10"/>
+
+                        <Setter Target="teamlbl.FontSize" Value="10"/>
+                        <Setter Target="Team.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Team.FontSize" Value="10"/>
+
+                        <Setter Target="poslbl.FontSize" Value="10"/>
+                        <Setter Target="Position.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Position.FontSize" Value="10"/>
+
+                        <Setter Target="costlbl.FontSize" Value="10"/>
+                        <Setter Target="Cost.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Cost.FontSize" Value="10"/>
+
+                        <Setter Target="costchlbl.FontSize" Value="10"/>
+                        <Setter Target="CostChanges.Margin" Value="20,0,0,0"/>
+                        <Setter Target="CostChanges.FontSize" Value="10"/>
+
+                        <Setter Target="totptslbl.FontSize" Value="10"/>
+                        <Setter Target="TotalPoints.Margin" Value="20,0,0,0"/>
+                        <Setter Target="TotalPoints.FontSize" Value="10"/>
+
+                        <Setter Target="pointsweeklbl.FontSize" Value="10"/>
+                        <Setter Target="pointsThisWeek.Margin" Value="20,0,0,0"/>
+                        <Setter Target="pointsThisWeek.FontSize" Value="10"/>
+
+                        <Setter Target="goalslbl.FontSize" Value="10"/>
+                        <Setter Target="Goals.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Goals.FontSize" Value="10"/>
+
+                        <Setter Target="assistslbl.FontSize" Value="10"/>
+                        <Setter Target="Assists.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Assists.FontSize" Value="10"/>
+
+                        <Setter Target="minuteslbl.FontSize" Value="10"/>
+                        <Setter Target="Minutes.Margin" Value="20,0,0,0"/>
+                        <Setter Target="Minutes.FontSize" Value="10"/>
+
+                        <Setter Target="cleansheetslbl.FontSize" Value="10"/>
+                        <Setter Target="cleanSheets.Margin" Value="20,0,0,0"/>
+                        <Setter Target="cleanSheets.FontSize" Value="10"/>
+
+                        <Setter Target="redlbl.FontSize" Value="10"/>
+                        <Setter Target="RedCards.Margin" Value="20,0,0,0"/>
+                        <Setter Target="RedCards.FontSize" Value="10"/>
+
+                        <Setter Target="yellowlbl.FontSize" Value="10"/>
+                        <Setter Target="yellowCards.Margin" Value="20,0,0,0"/>
+                        <Setter Target="yellowCards.FontSize" Value="10"/>
+
+                        <Setter Target="transinlbl.FontSize" Value="10"/>
+                        <Setter Target="TransfersIn.Margin" Value="20,0,0,0"/>
+                        <Setter Target="TransfersIn.FontSize" Value="10"/>
+
+                        <Setter Target="transoutlbl.FontSize" Value="10"/>
+                        <Setter Target="TransfersOut.Margin" Value="20,0,0,0"/>
+                        <Setter Target="TransfersOut.FontSize" Value="10"/>
+
+                        <Setter Target="transdiflbl.FontSize" Value="10"/>
+                        <Setter Target="TransfersDiff.Margin" Value="20,0,0,0"/>
+                        <Setter Target="TransfersDiff.FontSize" Value="10"/>
+
+                        <Setter Target="availlbl.FontSize" Value="10"/>
+                        <Setter Target="availability.Margin" Value="20,0,0,0"/>
+                        <Setter Target="availability.FontSize" Value="10"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainPanel.Width" Value="1420"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" >
+            <StackPanel Name="MainPanel" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="namelbl" Text="Name" FontSize="40"/>
+                    <TextBlock Name="Name" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="teamlbl" Text="Team" FontSize="40"/>
+                    <TextBlock Name="Team" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="poslbl" Text="Position" FontSize="40"/>
+                    <TextBlock Name="Position" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="costlbl" Text="Cost" FontSize="40"/>
+                    <TextBlock Name="Cost" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="costchlbl" Text="Cost Changes" FontSize="40"/>
+                    <TextBlock Name="CostChanges" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="totptslbl" Text="Total Points" FontSize="40"/>
+                    <TextBlock Name="TotalPoints" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="pointsweeklbl" Text="Points This Week" FontSize="40"/>
+                    <TextBlock Name="pointsThisWeek" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="goalslbl" Text="Goals" FontSize="40"/>
+                    <TextBlock Name ="Goals" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="assistslbl" Text="Assists" FontSize="40"/>
+                    <TextBlock Name ="Assists" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="minuteslbl" Text="Minutes" FontSize="40"/>
+                    <TextBlock Name ="Minutes" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="cleansheetslbl" Text="Clean Sheets" FontSize="40"/>
+                    <TextBlock Name ="cleanSheets" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="redlbl" Text="Red Cards" FontSize="40"/>
+                    <TextBlock Name ="RedCards" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="yellowlbl" Text="Yellow Cards" FontSize="40"/>
+                    <TextBlock Name ="yellowCards" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="transinlbl" Text="Transfers In" FontSize="40"/>
+                    <TextBlock Name ="TransfersIn" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="transoutlbl" Text="Transfers Out" FontSize="40"/>
+                    <TextBlock Name ="TransfersOut" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="transdiflbl" Text="Transfers Diff" FontSize="40"/>
+                    <TextBlock Name ="TransfersDiff" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
+                    <TextBlock Name="availlbl" Text="Availablilty" FontSize="40"/>
+                    <TextBlock Name ="availability" Text="" FontSize="40" Margin="800,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

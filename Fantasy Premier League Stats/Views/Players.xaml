@@ -15,7 +15,7 @@
                           SelectionChanged="GridView_SelectionChanged">
         <GridView.ItemTemplate>
             <DataTemplate x:DataType="data:Player">
-                <Grid Background="White" Margin="10" Height="275" Width="200">
+                <Grid Background="White" Margin="10" Height="275" Width="200" Name="playersGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*"/>
