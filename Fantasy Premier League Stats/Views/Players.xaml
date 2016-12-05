@@ -7,38 +7,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <GridView Name="PlayersGrid"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <TextBlock Text="Sortby" FontSize="20"/>
+            <ComboBox Margin="0,0,20,0" Grid.Row="0" Width="200" Height="Auto">
+                <ComboBoxItem>Team</ComboBoxItem>
+                <ComboBoxItem>Position</ComboBoxItem>
+                <ComboBoxItem>Total Points</ComboBoxItem>
+            </ComboBox>
+            <AutoSuggestBox x:Name="MyAutoSuggestBox" QueryIcon="Find" 
+                            PlaceholderText="Search" TextChanged="MyAutoSuggestBox_TextChanged"
+                            Width="200"/>
+        </StackPanel>
+        <GridView Name="PlayersGrid" Grid.Row="1"
                           ItemsSource="{x:Bind PlayersList}"
                           HorizontalAlignment="Stretch"
                           Margin="10,0,0,0"
                           SelectionChanged="GridView_SelectionChanged">
-        <GridView.ItemTemplate>
-            <DataTemplate x:DataType="data:Player">
-                <Grid Background="White" Margin="10" Height="275" Width="200" Name="playersGrid">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <TextBlock Name="PlayerName" Text="{x:Bind full_name}" HorizontalAlignment="Center" FontSize="15"/>
-                    <RelativePanel Grid.Row="1" Margin="10">
-                        <TextBlock Name="Poslbl" Text="POS" RelativePanel.AlignTopWithPanel="True" FontSize="18" TextWrapping="Wrap" Margin="20,0,0,0"/>
-                        <TextBlock Name="Position" Text="{x:Bind position}" FontSize="18" RelativePanel.Below="Poslbl" Margin="20,0,0,0"/>
-                        <TextBlock Name="Costlbl" Text="COST" RelativePanel.RightOf="Poslbl" FontSize="18" TextWrapping="Wrap" Margin="60,0,0,0"/>
-                        <TextBlock Name="Cost" Text="{x:Bind now_cost}" FontSize="18" RelativePanel.Below="Costlbl" Margin="120,0,0,0"/>
-                        <TextBlock Name="Goalslbl" Text="GS" RelativePanel.Below="Position" FontSize="18" TextWrapping="Wrap" Margin="20,20,0,0"/>
-                        <TextBlock Name="GoalsScored" Text="{x:Bind goals_scored}" FontSize="18" RelativePanel.Below="Goalslbl" Margin="20,0,0,0"/>
-                        <TextBlock Name="Assistslbl" RelativePanel.Below="Cost" Text="A" FontSize="18" Margin="120,20,0,0"/>
-                        <TextBlock Name="Assists" RelativePanel.Below="Assistslbl" TextWrapping="Wrap" Text="{x:Bind assists}" FontSize="18" Margin="120,0,0,0"/>
-                        <TextBlock Name="bonuslbl" Text="Bonus" RelativePanel.Below="Goalslbl" FontSize="18" TextWrapping="Wrap" Margin="20,40,0,0"/>
-                        <TextBlock Name="Bonus" Text="{x:Bind bonus}" FontSize="18" RelativePanel.Below="bonuslbl" Margin="20,0,0,0"/>
-                        <TextBlock Name="totallbl" RelativePanel.Below="Assists" Text="Points" FontSize="18" Margin="120,20,0,0"/>
-                        <TextBlock Name="TotalPoints" RelativePanel.Below="totallbl" TextWrapping="Wrap" Text="{x:Bind total_points}" FontSize="18" Margin="120,0,0,0"/>
-                    </RelativePanel>
-                    <TextBlock Grid.Row="2" Text="Tap for more stats..."/>
-                </Grid>
-            </DataTemplate>
-        </GridView.ItemTemplate>
-    </GridView>
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Player">
+                    <Grid Background="White" Margin="10" Height="275" Width="200" Name="playersGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="PlayerName" Text="{x:Bind full_name}" HorizontalAlignment="Center" FontSize="15"/>
+                        <RelativePanel Grid.Row="1" Margin="10">
+                            <TextBlock Name="Poslbl" Text="POS" RelativePanel.AlignTopWithPanel="True" FontSize="18" TextWrapping="Wrap" Margin="20,0,0,0"/>
+                            <TextBlock Name="Position" Text="{x:Bind position}" FontSize="18" RelativePanel.Below="Poslbl" Margin="20,0,0,0"/>
+                            <TextBlock Name="Costlbl" Text="COST" RelativePanel.RightOf="Poslbl" FontSize="18" TextWrapping="Wrap" Margin="60,0,0,0"/>
+                            <TextBlock Name="Cost" Text="{x:Bind now_cost}" FontSize="18" RelativePanel.Below="Costlbl" Margin="120,0,0,0"/>
+                            <TextBlock Name="Goalslbl" Text="GS" RelativePanel.Below="Position" FontSize="18" TextWrapping="Wrap" Margin="20,20,0,0"/>
+                            <TextBlock Name="GoalsScored" Text="{x:Bind goals_scored}" FontSize="18" RelativePanel.Below="Goalslbl" Margin="20,0,0,0"/>
+                            <TextBlock Name="Assistslbl" RelativePanel.Below="Cost" Text="A" FontSize="18" Margin="120,20,0,0"/>
+                            <TextBlock Name="Assists" RelativePanel.Below="Assistslbl" TextWrapping="Wrap" Text="{x:Bind assists}" FontSize="18" Margin="120,0,0,0"/>
+                            <TextBlock Name="bonuslbl" Text="Bonus" RelativePanel.Below="Goalslbl" FontSize="18" TextWrapping="Wrap" Margin="20,40,0,0"/>
+                            <TextBlock Name="Bonus" Text="{x:Bind bonus}" FontSize="18" RelativePanel.Below="bonuslbl" Margin="20,0,0,0"/>
+                            <TextBlock Name="totallbl" RelativePanel.Below="Assists" Text="Points" FontSize="18" Margin="120,20,0,0"/>
+                            <TextBlock Name="TotalPoints" RelativePanel.Below="totallbl" TextWrapping="Wrap" Text="{x:Bind total_points}" FontSize="18" Margin="120,0,0,0"/>
+                        </RelativePanel>
+                        <TextBlock Grid.Row="2" Text="Tap for more stats..."/>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
 </Page>

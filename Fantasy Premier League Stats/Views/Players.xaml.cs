@@ -29,7 +29,7 @@ namespace Fantasy_Premier_League_Stats.Views
             this.InitializeComponent();
             PlayerModel playerM = new PlayerModel();
             PlayersList = playerM.GetPlayers();
-            
+           
         }
 
         private IList<Player> PlayersList;
@@ -44,6 +44,12 @@ namespace Fantasy_Premier_League_Stats.Views
         {
             var playerData = e.AddedItems[0];
             Frame.Navigate(typeof(Views.SpecificPlayer), playerData);
+        }
+
+        private void MyAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var filtered = PlayersList.Where(i => i.second_name.Contains(this.MyAutoSuggestBox.Text)).ToList();
+            PlayersGrid.ItemsSource = filtered;
         }
     }
 }

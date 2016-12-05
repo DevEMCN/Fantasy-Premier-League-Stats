@@ -9,12 +9,33 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="500"/>
+            <RowDefinition Height="300"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Image Source="/Assets/images.jpg" />
-        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="Fantasy Premier League Statistics" FontSize="50"/>
-        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="Sourced From " FontSize="50" Margin="60"/>
-        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text=" http://jokecamp.github.io/epl-fantasy-geek/#/players" FontSize="40" Margin="150"/>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="image.Width" Value="100"/>
+                        <Setter Target="image.Height" Value="100"/>
+                        <Setter Target="heading.FontSize" Value="10"/>
+                        <Setter Target="subheading.FontSize" Value="10"/>
+                        <Setter Target="source.FontSize" Value="10"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="WideLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Image Name="image" Source="/Assets/images.jpg" Grid.Row="0"/>
+        <TextBlock Name="heading" HorizontalAlignment="Center" Grid.Row="1" Text="Fantasy Premier League Statistics" FontSize="50"/>
+        <TextBlock Name="subheading"  HorizontalAlignment="Center" Grid.Row="1" Text="Sourced From " FontSize="50" Margin="60"/>
+        <TextBlock Name="source" HorizontalAlignment="Center" Grid.Row="1" Text=" http://jokecamp.github.io/epl-fantasy-geek/#/players" FontSize="40" Margin="150"/>
     </Grid>
 </Page>
