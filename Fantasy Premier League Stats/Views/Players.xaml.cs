@@ -1,6 +1,7 @@
 ﻿using Fantasy_Premier_League_Stats.Data;
 using Fantasy_Premier_League_Stats.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -48,8 +49,28 @@ namespace Fantasy_Premier_League_Stats.Views
 
         private void MyAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var filtered = PlayersList.Where(i => i.second_name.Contains(this.MyAutoSuggestBox.Text)).ToList();
+            var filtered = PlayersList.Where(i => i.full_name.Contains(this.MyAutoSuggestBox.Text)).ToList();
             PlayersGrid.ItemsSource = filtered;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //var sorted = PlayersList.Where(i => i.second_name.Contains(this.MyAutoSuggestBox.Text)).ToList();
+            var sortTerm = MyComboBox.SelectedIndex;
+            IList sorted = null;
+            switch (sortTerm)
+            {
+                case 0:
+                    sorted = PlayersList.OrderBy(x => x.team_name).ToList();
+                    break;
+                case 1:
+                    sorted = PlayersList.OrderBy(x => x.position).ToList();
+                    break;
+                case 2:
+                    sorted = PlayersList.OrderByDescending(x => x.total_points).ToList();
+                    break;
+            }
+            PlayersGrid.ItemsSource = sorted;
         }
     }
 }

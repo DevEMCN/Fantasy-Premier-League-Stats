@@ -14,10 +14,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
             <TextBlock Text="Sortby" FontSize="20"/>
-            <ComboBox Margin="0,0,20,0" Grid.Row="0" Width="200" Height="Auto">
-                <ComboBoxItem>Team</ComboBoxItem>
-                <ComboBoxItem>Position</ComboBoxItem>
-                <ComboBoxItem>Total Points</ComboBoxItem>
+            <ComboBox x:Name="MyComboBox" Margin="0,0,20,0" Grid.Row="0" Width="200" Height="Auto" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem>team_name</ComboBoxItem>
+                <ComboBoxItem>position</ComboBoxItem>
+                <ComboBoxItem>total_points</ComboBoxItem>
             </ComboBox>
             <AutoSuggestBox x:Name="MyAutoSuggestBox" QueryIcon="Find" 
                             PlaceholderText="Search" TextChanged="MyAutoSuggestBox_TextChanged"
