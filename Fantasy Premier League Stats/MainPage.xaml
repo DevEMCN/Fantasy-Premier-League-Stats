@@ -24,10 +24,8 @@
                    />
             <TextBlock Name="TitleTextBlock" RelativePanel.RightOf="BackButton"
                        FontSize="28" FontWeight="Bold" Margin="20, 5, 0, 0"/>
-            <Button Name="SearchButton" RelativePanel.AlignRightWithPanel="True"
-                    FontFamily="Segoe MDL2 Assets" FontSize="36" Content="&#xE1A3;"/>
-            <TextBox Name="SearchTextBox" RelativePanel.LeftOf="SearchButton"
-                     Height="48" Width="200" FontSize="24" PlaceholderText="Search"/>
+            
+            
         </RelativePanel>
 
         <SplitView Grid.Row="1" Name="MySplitView" DisplayMode="CompactOverlay"

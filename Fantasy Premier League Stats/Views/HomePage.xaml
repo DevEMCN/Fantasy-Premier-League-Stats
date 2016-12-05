@@ -8,6 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="White">
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Assets/images.jpg" />
+        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="Fantasy Premier League Statistics" FontSize="50"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text="Sourced From " FontSize="50" Margin="60"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="1" Text=" http://jokecamp.github.io/epl-fantasy-geek/#/players" FontSize="40" Margin="150"/>
     </Grid>
 </Page>
