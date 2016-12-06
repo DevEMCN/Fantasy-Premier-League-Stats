@@ -35,11 +35,6 @@ namespace Fantasy_Premier_League_Stats.Views
 
         private IList<Player> PlayersList;
 
-        //private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        //{
-        //    var playerData = ((Player)e.ClickedItem).first_name + " " + ((Player)e.ClickedItem).second_name;
-        //    Frame.Navigate(typeof(Views.SpecificPlayer), playerData);
-        //}
 
         private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

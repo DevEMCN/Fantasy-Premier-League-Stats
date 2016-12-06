@@ -8,6 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="NarrowLayout">
@@ -98,6 +102,7 @@
         </VisualStateManager.VisualStateGroups>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" >
             <StackPanel Name="MainPanel" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button x:Name="FavButton" HorizontalAlignment="Center" Click="FavButton_Click">Add to Favourites</Button>
                 <StackPanel Orientation="Horizontal" BorderThickness="2" BorderBrush="Black" Margin="10">
                     <TextBlock Name="namelbl" Text="Name" FontSize="40"/>
                     <TextBlock Name="Name" Text="" FontSize="40" Margin="800,0,0,0"/>

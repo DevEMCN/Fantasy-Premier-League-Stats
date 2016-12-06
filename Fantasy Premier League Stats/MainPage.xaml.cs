@@ -62,6 +62,11 @@ namespace Fantasy_Premier_League_Stats
                 MyFrame.Navigate(typeof(Views.Players));
                 TitleTextBlock.Text = "Players";
             } 
+            else if (FavPlayers.IsSelected)
+            {
+                MyFrame.Navigate(typeof(Views.FavPlayers));
+                TitleTextBlock.Text = "Favourite Players";
+            }
         }
     }
 }

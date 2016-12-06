@@ -1,4 +1,5 @@
 ﻿using Fantasy_Premier_League_Stats.Data;
+using Fantasy_Premier_League_Stats.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace Fantasy_Premier_League_Stats.Views
     /// </summary>
     public sealed partial class SpecificPlayer : Page
     {
+        public Player player;
         public SpecificPlayer()
         {
             this.InitializeComponent();
@@ -31,7 +33,7 @@ namespace Fantasy_Premier_League_Stats.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Player player = e.Parameter as Player;
+            player = e.Parameter as Player;
             Name.Text = player.full_name;
             Team.Text = player.team_name;
             Position.Text = player.position;
@@ -51,6 +53,11 @@ namespace Fantasy_Premier_League_Stats.Views
             availability.Text = player.injured;
 
 
+        }
+
+        private void FavButton_Click(object sender, RoutedEventArgs e)
+        {
+            FavPlayerViewModel.FavPlayersList.Add(player);
         }
     }
 }

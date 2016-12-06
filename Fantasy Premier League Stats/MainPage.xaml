@@ -42,8 +42,15 @@
                     <ListBoxItem Name="Players">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" 
-                                       Text="&#xE1CE;"/>
+                                       Text="&#xE136;"/>
                             <TextBlock FontSize="24" Margin="20,0,0,0">Players</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="FavPlayers">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" 
+                                       Text="&#xE1CE;"/>
+                            <TextBlock FontSize="24" Margin="20,0,0,0">Fav Players</TextBlock>
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>
